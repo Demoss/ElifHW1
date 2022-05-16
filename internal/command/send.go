@@ -1,5 +1,5 @@
 package command
 
 type Send struct {
-	Text string `json:"text"`
+	Text string `json:"text" binding:"required"`
 }
