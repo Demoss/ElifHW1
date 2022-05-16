@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"ElifHW1/internal/command"
 	"ElifHW1/internal/domain"
 	"ElifHW1/internal/query"
 	"context"
@@ -9,6 +10,8 @@ import (
 
 type Sender interface {
 	Send(ctx context.Context, dialog domain.Dialog) error
+	DeleteAllMessages(ctx context.Context, messages command.DeleteAllMessages) error
+	UpdateMessage(ctx context.Context, dialog domain.Dialog, message command.UpdateMessage) error
 }
 
 type Receiver interface {

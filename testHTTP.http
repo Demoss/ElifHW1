@@ -1,19 +1,39 @@
 
-POST http://localhost:8000/api/me/kseniia
+POST http://localhost:8000/api/artem/misha
 Content-Type: application/json
 
 {
-  "text": "test"
+  "text": "hi"
+}
+
+###
+POST http://localhost:8000/api/artem/misha
+Content-Type: application/json
+
+{
+  "text": "misha"
 }
 
 ###
 
-GET http://localhost:8000/api/kseniia/me
+GET http://localhost:8000/api/misha/artem
 Accept: application/json
 
 ###
 
-GET http://localhost:8000/api/me/kseniia
+GET http://localhost:8000/api/artem/misha
 Accept: application/json
 
 ###
+
+DELETE http://localhost:8000/api/artem/misha
+Accept: application/json
+
+###
+
+PUT http://localhost:8000/api/artem/misha/hi
+Content-Type: application/json
+
+{
+  "text": "hello"
+}

@@ -21,6 +21,8 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		sender := api.Group("/")
 		{
 			sender.POST("/:sender/:receiver", h.Send)
+			sender.PUT("/:sender/:receiver/:message", h.UpdateMessage)
+			sender.DELETE("/:sender/:receiver", h.DeleteAllMessages)
 		}
 		receiver := api.Group("/")
 		{
