@@ -1,0 +1,19 @@
+
+POST http://localhost:8000/api/me/kseniia
+Content-Type: application/json
+
+{
+  "text": "test"
+}
+
+###
+
+GET http://localhost:8000/api/kseniia/me
+Accept: application/json
+
+###
+
+GET http://localhost:8000/api/me/kseniia
+Accept: application/json
+
+###
