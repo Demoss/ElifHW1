@@ -23,7 +23,7 @@ func (h *Handler) Send(c *gin.Context) {
 		Text:     input.Text,
 	}
 
-	err := h.repos.Sender.Send(c, dialog)
+	err := h.services.Sender.Send(c, dialog)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
@@ -40,7 +40,7 @@ func (h *Handler) DeleteAllMessages(c *gin.Context) {
 		From: from,
 		To:   to,
 	}
-	err := h.repos.Sender.DeleteAllMessages(c, request)
+	err := h.services.Sender.DeleteAllMessages(c, request)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
@@ -65,7 +65,7 @@ func (h *Handler) UpdateMessage(c *gin.Context) {
 		SendTo:   to,
 		Text:     message,
 	}
-	err := h.repos.Sender.UpdateMessage(c, dialog, input)
+	err := h.services.Sender.UpdateMessage(c, dialog, input)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return

@@ -1,16 +1,16 @@
 package handler
 
 import (
-	"ElifHW1/internal/repository"
+	"ElifHW1/internal/service"
 	"github.com/gin-gonic/gin"
 )
 
 type Handler struct {
-	repos *repository.Repository
+	services *service.Service
 }
 
-func NewHandler(repos *repository.Repository) *Handler {
-	return &Handler{repos: repos}
+func NewHandler(services *service.Service) *Handler {
+	return &Handler{services: services}
 }
 
 func (h *Handler) InitRoutes() *gin.Engine {

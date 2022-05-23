@@ -2,8 +2,10 @@ package main
 
 import (
 	"ElifHW1"
+	"ElifHW1/internal/domain"
 	"ElifHW1/internal/handler"
 	"ElifHW1/internal/repository"
+	"ElifHW1/internal/service"
 	posgres "ElifHW1/pkg/db/postgres"
 	"context"
 	_ "github.com/golang-migrate/migrate/v4/database/postgres"
@@ -47,7 +49,13 @@ func run() error {
 	}
 
 	repos := repository.NewRepository(db)
-	handlers := handler.NewHandler(repos)
+	services := service.NewService(repos)
+	handlers := handler.NewHandler(services)
+
+	err = db.AutoMigrate(&domain.Dialog{})
+	if err != nil {
+		return err
+	}
 
 	srv := new(ElifHW1.Server)
 	go func() {

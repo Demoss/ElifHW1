@@ -15,7 +15,7 @@ func (h *Handler) ReceiveMessages(c *gin.Context) {
 		To:   to,
 		From: from,
 	}
-	messages, err := h.repos.Receiver.ReceiveLast(c, res)
+	messages, err := h.services.Receiver.ReceiveLast(c, res)
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
